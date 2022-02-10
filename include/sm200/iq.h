@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /*
- * Copyright (C) 2018 Signal Hound, Inc. <support@signalhound.com>
+ * Copyright 2022 Signal Hound, Inc. <support@signalhound.com>.
  *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-
 #ifndef INCLUDED_SM200_IQ_H
 #define INCLUDED_SM200_IQ_H
 
@@ -29,22 +28,25 @@ namespace gr {
   namespace sm200 {
 
     /*!
-     * This block acquires IQ data from the Signal Hound SM200 spectrum analyzer.
-     *
+     * \brief This block acquires IQ data from the Signal Hound SM200 spectrum analyzer.
+     * \ingroup sm200
      *
      */
     class SM200_API iq : virtual public gr::sync_block
     {
-    public:
+     public:
       typedef boost::shared_ptr<iq> sptr;
 
+      /*!
+       * \brief Return a shared_ptr to a new instance of sm200::iq.
+       *
+       */
       static sptr make(double center,
                        int decimation,
                        double bandwidth,
                        bool filter,
                        bool purge,
                        bool networked);
-
       virtual void set_center(double center) = 0;
       virtual void set_decimation(int decimation) = 0;
       virtual void set_bandwidth(double bandwidth) = 0;

@@ -22,13 +22,14 @@
 This is the GNU Radio SM200 module. Place your Python package
 description here (python/__init__.py).
 '''
+from __future__ import unicode_literals
 
 # import swig generated symbols into the sm200 namespace
 try:
-	# this might fail if the module is python-only
-	from sm200_swig import *
+    # this might fail if the module is python-only
+    from .sm200_swig import *
 except ImportError:
-	pass
+    pass
 
 # import any pure python here
 #

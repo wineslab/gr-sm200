@@ -28,7 +28,7 @@
 #include <cppunit/XmlOutputter.h>
 
 #include <gnuradio/unittests.h>
-#include "qa_sm200.h"
+#include "qa_iq.h"
 #include <iostream>
 #include <fstream>
 
@@ -39,7 +39,7 @@ main (int argc, char **argv)
   std::ofstream xmlfile(get_unittest_path("sm200.xml").c_str());
   CppUnit::XmlOutputter *xmlout = new CppUnit::XmlOutputter(&runner.result(), xmlfile);
 
-  runner.addTest(qa_sm200::suite());
+  runner.addTest(qa_iq::suite());
   runner.setOutputter(xmlout);
 
   bool was_successful = runner.run("", false);

@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
 /*
- * Copyright (C) 2018 Signal Hound, Inc. <support@signalhound.com>
+ * Copyright 2022 Signal Hound, Inc. <support@signalhound.com>.
  *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,23 +29,23 @@ namespace gr {
 
     class iq_impl : public iq
     {
-    private:
-      int d_handle;
+     private:
+       int d_handle;
 
-      double d_center;
-      int d_decimation;
-      double d_bandwidth;
-      bool d_filter;
-      bool d_purge;
-      bool d_networked;
+	double d_center;
+	int d_decimation;
+	double d_bandwidth;
+	bool d_filter;
+	bool d_purge;
+	bool d_networked;
 
-      gr::thread::mutex d_mutex;
-      bool d_param_changed;
+	gr::thread::mutex d_mutex;
+	bool d_param_changed;
 
-      std::complex<float> *d_buffer;
-      bool d_len;
+	std::complex<float> *d_buffer;
+	bool d_len;
 
-    public:
+     public:
       iq_impl(double center,
               int decimation,
               double bandwidth,
@@ -63,9 +63,11 @@ namespace gr {
 
       void configure();
 
-      int work(int noutput_items,
-               gr_vector_const_void_star &input_items,
-               gr_vector_void_star &output_items);
+      int work(
+              int noutput_items,
+              gr_vector_const_void_star &input_items,
+              gr_vector_void_star &output_items
+      );
     };
 
   } // namespace sm200

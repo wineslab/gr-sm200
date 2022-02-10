@@ -1,0 +1,45 @@
+id: sm200_iq
+label: SM200: IQ Source
+category: '[sm200]'
+
+templates:
+  imports: import sm200
+  make: sm200.iq(${center}, ${decimation}, ${bandwidth}, ${filter}, ${purge}, ${networked} )
+
+parameters:
+- id: center
+  label: Center
+  value: 1e9
+  dtype: float
+- id: decimation
+  label: Decimation
+  value: 2
+  dtype: int
+- id: bandwidth
+  label: Bandwidth
+  value: 18e6
+  dtype: float
+- id: filter
+  label: Software Filter
+  value: False
+  dtype: bool
+- id: purge
+  label: Purge
+  value: False
+  dtype: bool
+- id: networked
+  label: Networked
+  value: False
+  dtype: bool
+
+
+outputs:
+- label: out
+  domain: stream
+  dtype: complex
+  vlen: 1
+  optional: 0
+
+#  'file_format' specifies the version of the GRC yml format used in the file
+#  and should usually not be changed.
+file_format: 1
